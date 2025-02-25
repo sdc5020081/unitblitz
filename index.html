@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitBlitz - Convert Anything</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png"> <!-- Optional: Add a favicon later -->
+</head>
+<body>
+    <header role="banner">
+        <h1>unitblitz</h1>
+        <h2>unit conversion tool</h2>
+        <button id="darkModeToggle" aria-label="Toggle dark mode" class="dark-mode-toggle">
+            <span class="toggle-icon">☀️</span>
+        </button>
+    </header>
+    <main role="main">
+        <div class="converter-box" aria-label="Unit Converter">
+            <div class="tabs" role="tablist" aria-label="Conversion categories">
+                <button role="tab" aria-selected="true" aria-controls="length-tab" onclick="switchCategory('length')">Length</button>
+                <button role="tab" aria-selected="false" aria-controls="weight-tab" onclick="switchCategory('weight')">Weight</button>
+                <button role="tab" aria-selected="false" aria-controls="volume-tab" onclick="switchCategory('volume')">Volume</button>
+                <button role="tab" aria-selected="false" aria-controls="temperature-tab" onclick="switchCategory('temperature')">Temperature</button>
+            </div>
+            <div id="length-tab" class="tab-content" role="tabpanel" aria-labelledby="length-tab">
+                <input type="number" id="inputValue-length" placeholder="Enter value" aria-label="Value to convert (Length)" required>
+                <select id="fromUnit-length" aria-label="From unit (Length)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <span aria-hidden="true">to</span>
+                <select id="toUnit-length" aria-label="To unit (Length)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <button onclick="convert()" aria-label="Convert units">Convert</button>
+                <div id="result-length" role="alert" aria-live="polite">Result: </div>
+            </div>
+            <div id="weight-tab" class="tab-content" role="tabpanel" aria-labelledby="weight-tab" style="display: none;">
+                <input type="number" id="inputValue-weight" placeholder="Enter value" aria-label="Value to convert (Weight)" required>
+                <select id="fromUnit-weight" aria-label="From unit (Weight)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <span aria-hidden="true">to</span>
+                <select id="toUnit-weight" aria-label="To unit (Weight)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <button onclick="convert()" aria-label="Convert units">Convert</button>
+                <div id="result-weight" role="alert" aria-live="polite">Result: </div>
+            </div>
+            <div id="volume-tab" class="tab-content" role="tabpanel" aria-labelledby="volume-tab" style="display: none;">
+                <input type="number" id="inputValue-volume" placeholder="Enter value" aria-label="Value to convert (Volume)" required>
+                <select id="fromUnit-volume" aria-label="From unit (Volume)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <span aria-hidden="true">to</span>
+                <select id="toUnit-volume" aria-label="To unit (Volume)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <button onclick="convert()" aria-label="Convert units">Convert</button>
+                <div id="result-volume" role="alert" aria-live="polite">Result: </div>
+            </div>
+            <div id="temperature-tab" class="tab-content" role="tabpanel" aria-labelledby="temperature-tab" style="display: none;">
+                <input type="number" id="inputValue-temperature" placeholder="Enter value" aria-label="Value to convert (Temperature)" required>
+                <select id="fromUnit-temperature" aria-label="From unit (Temperature)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <span aria-hidden="true">to</span>
+                <select id="toUnit-temperature" aria-label="To unit (Temperature)">
+                    <!-- Populated by JavaScript -->
+                </select>
+                <button onclick="convert()" aria-label="Convert units">Convert</button>
+                <div id="result-temperature" role="alert" aria-live="polite">Result: </div>
+            </div>
+        </div>
+        <div id="ad-slot-header" class="ad-slot">
+            <!-- Placeholder for Header Ad - Replace with real ad code (e.g., Google AdSense, Buy Me a Coffee) -->
+            <p>Ad Space (Header) - 728x90 or 300x250</p>
+        </div>
+        <div id="ad-slot-content" class="ad-slot">
+            <!-- Placeholder for Content Ad - Replace with real ad code (e.g., Google AdSense, Buy Me a Coffee) -->
+            <p>Ad Space (Content) - 300x250 or 728x90</p>
+        </div>
+        <div id="ad-slot-footer" class="ad-slot">
+            <!-- Placeholder for Footer Ad - Replace with real ad code (e.g., Google AdSense, Buy Me a Coffee) -->
+            <p>Ad Space (Footer) - 728x90 or 300x250</p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
