@@ -1,25 +1,32 @@
+/* Reset and base styles for consistency */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background: #f0f2f5; /* Light grey background for light mode */
+    background: #f0f2f5;
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    color: #333; /* Default text color for light mode */
-    transition: background 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Import fun, retro font (Bungee Inline) and Montserrat for subheader via Google Fonts */
+/* Import Google Fonts directly via CSS for fallback */
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Montserrat:wght@300;400&display=swap');
 
 header {
-    background: #1a1a1a; /* Solid black for header */
+    background: #1a1a1a;
     color: white;
     width: 100%;
     text-align: center;
     padding: 1.5rem 2rem;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Soft grey shadow */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -28,34 +35,28 @@ header {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    /* Artistic shape with a wavy bottom edge */
     clip-path: polygon(0 0, 100% 0, 100% 85%, 90% 100%, 10% 100%, 0 85%);
-    transition: background 0.3s ease; /* Smooth transition for dark mode */
+    transition: background 0.3s ease;
 }
 
 h1, h2 {
     margin: 0;
     letter-spacing: 1px;
-    transition: transform 0.3s ease; /* Subtle animation on hover */
+    transition: transform 0.3s ease;
 }
 
 /* Bungee Inline with white appearance, pink/yellow effect subtle */
 h1 {
-    font-family: 'Bungee Inline', cursive; /* Fun, retro, bold font */
+    font-family: 'Bungee Inline', Arial, sans-serif;
     font-size: 2.8rem;
-    font-weight: normal; /* No bold, keeps it light and fun */
-    text-transform: lowercase; /* Ensure lowercase text */
-    /* Pink fill with yellow outline, but ensure white appearance */
-    background: linear-gradient(to bottom, #ffffff, #ffffff); /* White gradient */
+    font-weight: normal;
+    text-transform: lowercase;
+    background: linear-gradient(to bottom, #ffffff, #ffffff);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent; /* Make text transparent to show gradient */
-    text-shadow: 
-        2px 2px 0 #ffd700, /* Yellow outline */
-        -2px -2px 0 #ffd700,
-        2px -2px 0 #ffd700,
-        -2px 2px 0 #ffd700;
-    -webkit-text-fill-color: #ffffff; /* Ensure white text */
+    color: transparent;
+    text-shadow: 2px 2px 0 #ffd700, -2px -2px 0 #ffd700, 2px -2px 0 #ffd700, -2px 2px 0 #ffd700;
+    -webkit-text-fill-color: #ffffff;
     text-fill-color: #ffffff;
 }
 
@@ -64,17 +65,17 @@ h1:hover {
 }
 
 h2 {
-    font-family: 'Montserrat', sans-serif; /* Keep Montserrat for subheader for readability */
+    font-family: 'Montserrat', Arial, sans-serif;
     font-size: 1.2rem;
-    font-weight: 300; /* Lighter for subheader */
-    opacity: 0.9; /* Slightly transparent for subtle emphasis */
-    margin-top: 0.5rem; /* Space between h1 and h2 */
-    color: #ffffff; /* White text for subheader to match header */
+    font-weight: 300;
+    opacity: 0.9;
+    margin-top: 0.5rem;
+    color: #ffffff;
 }
 
 h2:hover {
     transform: scale(1.05);
-    opacity: 1; /* Full opacity on hover for interactivity */
+    opacity: 1;
 }
 
 .dark-mode-toggle {
@@ -95,48 +96,49 @@ h2:hover {
 
 .converter-box {
     background: #ffffff;
-    padding: 2.5rem 2rem 2rem; /* Adjust padding for tabs */
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(102, 102, 102, 0.1); /* Grey shadow for neumorphic effect */
-    margin-top: 3rem;
-    margin-bottom: 2rem; /* Add space below converter for ads */
+    padding: 1rem 2rem 2rem; /* Reduced top padding to fully contain tabs */
+    border-radius: 25px; /* Smooth border to encircle content */
+    box-shadow: 0 8px 20px rgba(102, 102, 102, 0.1);
+    margin: 3rem 0 2rem;
     text-align: center;
     width: 90%;
-    max-width: 600px;
-    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for dark mode */
+    max-width: 750px; /* Maintain size to fit reduced tabs */
+    transition: background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Ensures tabs don’t overflow visually */
 }
 
-/* Tabs Styling */
+/* Tabs Styling - Decreased size by 7.5%, fully contained within converter-box */
 .tabs {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid #999999; /* Light grey border */
+    gap: 0.925rem; /* Reduced gap by 7.5% (1rem * 0.925) */
+    margin: 0 0 1.5rem; /* Margin below tabs */
+    border-bottom: 2px solid #999999;
+    padding: 1rem 0 0; /* Padding to ensure tabs are fully inside */
 }
 
 .tabs button {
     background: none;
     border: none;
-    padding: 0.75rem 1.5rem;
-    font-family: 'Bungee Inline', cursive; /* Match header font for fun */
-    font-size: 1.2rem;
-    color: #000000; /* Black text in light mode */
+    padding: 0.69375rem 1.3875rem; /* Reduced by 7.5% (0.75rem * 0.925, 1.5rem * 0.925) */
+    font-family: 'Bungee Inline', Arial, sans-serif;
+    font-size: 1.11rem; /* Reduced by 7.5% (1.2rem * 0.925) */
+    color: #000000;
     cursor: pointer;
-    border-radius: 10px 10px 0 0;
+    border-radius: 9.25px 9.25px 0 0; /* Reduced by 7.5% (10px * 0.925) */
     transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .tabs button[aria-selected="true"] {
-    background: #4a90e2; /* Blue for active tab */
-    color: white; /* White text for active tab */
-    box-shadow: 0 -2px 10px rgba(74, 144, 226, 0.1); /* Blue-grey neumorphic effect */
-    transform: scale(1.05); /* Slight zoom for active tab */
+    background: #4a90e2;
+    color: white;
+    box-shadow: 0 -2px 10px rgba(74, 144, 226, 0.1);
+    transform: scale(1.05);
 }
 
 .tabs button:hover:not([aria-selected="true"]) {
-    background: #5a9ee6; /* Lighter blue on hover */
-    transform: scale(1.02); /* Subtle zoom on hover */
+    background: #5a9ee6;
+    transform: scale(1.02);
 }
 
 .tab-content {
@@ -151,34 +153,34 @@ select, input, button {
     padding: 0.75rem;
     margin: 0.5rem;
     border-radius: 12px;
-    border: 2px solid #999999; /* Light grey border */
+    border: 2px solid #999999;
     font-size: 1.1rem;
-    width: 150px; /* Fixed width for consistency */
-    background: #ffffff; /* White background for inputs */
-    color: #333; /* Dark grey text */
-    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    width: 150px;
+    background: #ffffff;
+    color: #333;
+    transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
 select:focus, input:focus, button:focus {
     outline: none;
-    border-color: #4a90e2; /* Blue focus outline */
-    transform: scale(1.02); /* Slight zoom on focus */
+    border-color: #4a90e2;
+    transform: scale(1.02);
     box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
 }
 
 button {
-    background: #4a90e2; /* Blue button */
+    background: #4a90e2;
     color: white;
     border: none;
     cursor: pointer;
-    width: auto; /* Auto width for button */
+    width: auto;
     padding: 0.75rem 1.5rem;
     font-weight: 600;
 }
 
 button:hover {
-    background: #357abd; /* Darker blue on hover */
-    transform: scale(1.05); /* Slight zoom on hover */
+    background: #357abd;
+    transform: scale(1.05);
 }
 
 #result, #result-weight, #result-volume, #result-temperature {
@@ -186,27 +188,22 @@ button:hover {
     font-size: 1.3rem;
     color: #333;
     font-weight: 500;
-    animation: fadeIn 0.5s ease-in; /* Simplified fade-in animation */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+    animation: fadeIn 0.5s ease-in;
 }
 
 /* Ad Slot Styling */
 .ad-slot {
     width: 90%;
-    max-width: 728px; /* Standard banner ad width */
+    max-width: 728px;
     margin: 1rem auto;
     padding: 1rem;
-    background: #ffffff; /* White background in light mode */
-    border: 1px solid #999999; /* Light grey border */
+    background: #ffffff;
+    border: 1px solid #999999;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(102, 102, 102, 0.1); /* Grey shadow for neumorphic effect */
+    box-shadow: 0 4px 10px rgba(102, 102, 102, 0.1);
     text-align: center;
-    color: #333; /* Dark grey text */
-    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for dark mode */
+    color: #333;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .ad-slot p {
@@ -214,62 +211,131 @@ button:hover {
     font-size: 0.9rem;
 }
 
-/* Dark Mode for Ad Slots */
-.ad-slot.dark-mode {
-    background: #2d2d2d; /* Dark grey background in dark mode */
-    border-color: #666666; /* Darker grey border */
-    color: #e0e0e0; /* Light grey text for contrast */
-    box-shadow: 0 4px 10px rgba(102, 102, 102, 0.3); /* Darker grey shadow */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Dark Mode Styles */
 body.dark-mode {
-    background: #1a1a1a; /* Black background */
-    color: #e0e0e0; /* Light grey text for contrast */
+    background: #1a1a1a;
+    color: #e0e0e0;
 }
 
 header.dark-mode {
-    background: #1a1a1a; /* Keep black for header in dark mode */
+    background: #1a1a1a;
 }
 
 .converter-box.dark-mode {
-    background: #2d2d2d; /* Dark grey for converter box */
-    box-shadow: 0 8px 20px rgba(102, 102, 102, 0.3); /* Darker grey shadow */
+    background: #2d2d2d;
+    box-shadow: 0 8px 20px rgba(102, 102, 102, 0.3);
 }
 
 .tabs.dark-mode {
-    border-bottom: 2px solid #666666; /* Darker grey border for tabs */
+    border-bottom: 2px solid #666666;
 }
 
 .tabs button.dark-mode {
-    color: #e0e0e0; /* Light grey text in dark mode for contrast */
+    color: #e0e0e0;
 }
 
 .tabs button[aria-selected="true"].dark-mode {
-    background: #4a90e2; /* Keep blue for active tab */
+    background: #4a90e2;
     color: white;
 }
 
 .tabs button:hover:not([aria-selected="true"]).dark-mode {
-    background: #5a9ee6; /* Lighter blue on hover */
+    background: #5a9ee6;
 }
 
 select.dark-mode, input.dark-mode, button.dark-mode {
-    background: #3d3d3d; /* Dark grey input background */
-    border-color: #666666; /* Darker grey border */
-    color: #e0e0e0; /* Light grey text */
+    background: #3d3d3d;
+    border-color: #666666;
+    color: #e0e0e0;
 }
 
 button.dark-mode {
-    background: #4a90e2; /* Keep blue button for consistency */
+    background: #4a90e2;
 }
 
 button.dark-mode:hover {
-    background: #357abd; /* Darker blue on hover */
+    background: #357abd;
 }
 
 #result.dark-mode, #result-weight.dark-mode, #result-volume.dark-mode, #result-temperature.dark-mode {
-    color: #a0e6a0; /* Light green for results in dark mode */
+    color: #a0e6a0;
 }
 
-/*
+.ad-slot.dark-mode {
+    background: #2d2d2d;
+    border-color: #666666;
+    color: #e0e0e0;
+    box-shadow: 0 4px 10px rgba(102, 102, 102, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .converter-box {
+        width: 85%;
+        padding: 1rem 1rem 1rem; /* Adjusted padding for smaller tabs on mobile */
+    }
+
+    .tabs {
+        flex-direction: column;
+        gap: 0.4625rem; /* Reduced gap for mobile (0.925rem * 0.5 for column layout) */
+        margin-bottom: 1rem;
+    }
+
+    .tabs button {
+        width: 100%;
+        padding: 0.346875rem 0.69375rem; /* Reduced by 7.5% for mobile (0.69375rem * 0.5, 1.3875rem * 0.5) */
+        font-size: 0.555rem; /* Reduced by 7.5% for mobile (1.11rem * 0.5) */
+        border-radius: 4.625px 4.625px 0 0; /* Reduced by 7.5% for mobile (9.25px * 0.5) */
+    }
+
+    select, input, button {
+        width: 120px;
+        padding: 0.6rem;
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    #result, #result-weight, #result-volume, #result-temperature {
+        font-size: 1.1rem;
+    }
+
+    header {
+        padding: 1rem;
+        gap: 0.5rem;
+    }
+
+    .dark-mode-toggle {
+        font-size: 1rem;
+    }
+
+    .ad-slot {
+        width: 85%;
+        padding: 0.8rem;
+        max-width: 300px;
+    }
+}
+
+/* Dropdown Animation */
+select {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="%234a90e2" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 0.75rem center;
+    background-size: 1rem;
+    padding-right: 2rem;
+    transition: transform 0.3s ease;
+}
+
+select:focus {
+    transform: scale(1.02);
+}
